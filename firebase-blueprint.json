@@ -1,0 +1,85 @@
+{
+  "entities": {
+    "Character": {
+      "title": "Character",
+      "description": "A D&D 5e Character Sheet",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The owner's user ID" },
+        "name": { "type": "string" },
+        "race": { "type": "string" },
+        "class": { "type": "string" },
+        "level": { "type": "number" },
+        "campaignId": { "type": "string" },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "str": { "type": "number" },
+            "dex": { "type": "number" },
+            "con": { "type": "number" },
+            "int": { "type": "number" },
+            "wis": { "type": "number" },
+            "cha": { "type": "number" }
+          }
+        },
+        "hp": {
+          "type": "object",
+          "properties": {
+            "current": { "type": "number" },
+            "max": { "type": "number" },
+            "temp": { "type": "number" }
+          }
+        },
+        "ac": { "type": "number" },
+        "inventory": { "type": "array", "items": { "type": "object" } },
+        "spells": { "type": "array", "items": { "type": "object" } },
+        "backstory": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name"]
+    },
+    "LibraryData": {
+      "title": "Library Data",
+      "description": "Cached data from 5e.tools resources",
+      "type": "object",
+      "properties": {
+        "category": { "type": "string", "enum": ["spells", "items", "races", "classes"] },
+        "name": { "type": "string" },
+        "data": { "type": "object" },
+        "source": { "type": "string" }
+      }
+    },
+    "Roll": {
+      "title": "Roll",
+      "description": "A dice roll shared in a campaign",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "playerName": { "type": "string" },
+        "request": { "type": "object" },
+        "result": { "type": "object" },
+        "mode": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/characters/{characterId}": {
+      "schema": "Character",
+      "description": "Stores individual D&D character sheets"
+    },
+    "/library/{dataId}": {
+      "schema": "LibraryData",
+      "description": "Reference data for spells, items, etc."
+    },
+    "/campaigns/{campaignId}/rolls/{rollId}": {
+      "schema": "Roll",
+      "description": "Real-time stream of party rolls"
+    }
+  }
+}

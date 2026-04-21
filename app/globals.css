@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@layer base {
+  :root {
+    --parchment: #e8dcc4;
+    --deep-slate: #1a1a1e;
+    --gold-accent: #c5a059;
+    --magic-blue: #4facfe;
+    --blood-red: #8b0000;
+    --shadow: rgba(0, 0, 0, 0.6);
+  }
+
+  body {
+    @apply bg-[var(--deep-slate)] text-[var(--parchment)] font-sans selection:bg-[var(--gold-accent)] selection:text-[var(--deep-slate)];
+    background-image: radial-gradient(circle at center, #2c2c34 0%, #1a1a1e 100%);
+  }
+
+  h1, h2, h3, h4, .serif {
+    @apply font-serif;
+  }
+}
+
+.eldritch-panel {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  @apply rounded-lg p-4 shadow-2xl;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+.gold-border {
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.stat-card-immersive {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  @apply rounded-lg text-center p-3 relative transition-all hover:bg-white/10;
+}
+
+.ai-btn-gradient {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  @apply text-white font-bold uppercase;
+}
+
+.vital-box-immersive {
+  @apply flex-1 text-center p-2 rounded border border-[rgba(197,160,89,0.3)] bg-[rgba(197,160,89,0.1)];
+}
