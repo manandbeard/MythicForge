@@ -122,7 +122,25 @@ export default function LandingPage() {
 
         <div className="mt-8 md:mt-0">
           {user ? (
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+              <button
+                onClick={() => router.push('/combat')}
+                className="group flex flex-col items-center gap-1"
+              >
+                <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--blood-red)] group-hover:border-[var(--blood-red)] group-hover:text-white transition-all text-[var(--gold-accent)]">
+                  <Swords size={20} />
+                </div>
+                <span className="text-[10px] uppercase font-bold tracking-tighter text-[var(--gold-accent)]">Combat</span>
+              </button>
+              <button
+                onClick={() => router.push('/encounters')}
+                className="group flex flex-col items-center gap-1"
+              >
+                <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--gold-accent)] group-hover:text-[var(--deep-slate)] transition-all">
+                  <Ghost size={20} />
+                </div>
+                <span className="text-[10px] uppercase font-bold tracking-tighter">Encounters</span>
+              </button>
               <button
                 onClick={() => router.push('/spellbook')}
                 className="group flex flex-col items-center gap-1"
@@ -139,20 +157,20 @@ export default function LandingPage() {
                 <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--gold-accent)] group-hover:text-[var(--deep-slate)] transition-all">
                   <Book size={20} />
                 </div>
-                <span className="text-[10px] uppercase font-bold tracking-tighter">Roll History</span>
+                <span className="text-[10px] uppercase font-bold tracking-tighter">History</span>
               </button>
-              <div className="text-right hidden sm:block border-l border-[var(--gold-accent)]/30 pl-6">
+              <div className="text-right hidden md:block border-l border-[var(--gold-accent)]/30 pl-4 sm:pl-6 ml-2 sm:ml-0">
                 <p className="text-sm font-bold text-[var(--gold-accent)]">{user.displayName}</p>
                 <p className="text-[10px] uppercase tracking-widest opacity-60">High Archivist</p>
               </div>
               <button
                 onClick={() => signOut(auth)}
-                className="group flex flex-col items-center gap-1"
+                className="group flex flex-col items-center gap-1 ml-2 sm:ml-0"
               >
                 <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--gold-accent)] group-hover:text-[var(--deep-slate)] transition-all">
                   <LogOut size={20} />
                 </div>
-                <span className="text-[10px] uppercase font-bold tracking-tighter">Exit Grimoire</span>
+                <span className="text-[10px] uppercase font-bold tracking-tighter">Exit</span>
               </button>
             </div>
           ) : (
