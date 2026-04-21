@@ -200,7 +200,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     } else if (description) {
       setIsExplaining(true);
       explainActionEffect(reason, description).then(desc => {
-          setActionEffect(desc);
+          setActionEffect(desc || null);
           setIsExplaining(false);
       });
     }
@@ -230,7 +230,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
         setIsExplaining(true);
         const actionName = fullReqs[0].reason.replace('Attack: ', '').replace('Damage: ', '');
         explainActionEffect(actionName, description).then(desc => {
-            setActionEffect(desc);
+            setActionEffect(desc || null);
             setIsExplaining(false);
         });
       }
@@ -329,34 +329,34 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
                     <motion.div key="rolling" className="w-full h-full min-h-[200px] relative">
                         {show3D && (
                           <Dice3DManager 
-                            dice={
+                            dice={(
                               activeCombo && comboResult 
                                 ? activeCombo.flatMap((req, idx) => {
                                     const res = comboResult[idx];
                                     const mode = idx === 0 ? rollMode : 'normal';
                                     if (req.type === 20 && req.count === 1 && mode !== 'normal') {
                                         return [
-                                            { type: 20, targetValue: res.individual[0], mode: mode },
-                                            { type: 20, targetValue: res.dropped!, mode: mode }
+                                            { type: 20 as any, targetValue: res.individual[0], mode: mode },
+                                            { type: 20 as any, targetValue: res.dropped!, mode: mode }
                                         ];
                                     }
                                     return Array.from({ length: req.count }).map((_, i) => ({
-                                        type: req.type,
+                                        type: req.type as any,
                                         targetValue: res.individual[i],
                                         mode: 'normal'
                                     }));
                                 })
                                 : rollMode === 'advantage' || rollMode === 'disadvantage' 
                                  ? [
-                                     { type: 20, targetValue: rollResult?.individual[0] || 20, mode: rollMode },
-                                     { type: 20, targetValue: rollResult?.dropped || 1, mode: rollMode }
+                                     { type: 20 as any, targetValue: rollResult?.individual[0] || 20, mode: rollMode },
+                                     { type: 20 as any, targetValue: rollResult?.dropped || 1, mode: rollMode }
                                    ]
                                  : Array.from({ length: activeRoll!.count }).map((_, i) => ({
-                                     type: activeRoll!.type,
+                                     type: activeRoll!.type as any,
                                      targetValue: rollResult?.individual[i] || activeRoll!.type,
                                      mode: 'normal'
                                    }))
-                            }
+                            ) as any}
                             onSettled={handle3DSettled}
                           />
                         )}

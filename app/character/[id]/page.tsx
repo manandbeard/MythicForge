@@ -157,7 +157,7 @@ export default function CharacterSheet() {
 
     // Appy bonuses/overrides
     Object.keys(newStats).forEach(stat => {
-      const s = stat as keyof typeof newStats;
+      const s = stat as keyof typeof bonuses;
       newStats[s] = baseStats[s] + bonuses[s];
       if (overrides[s] !== -1) {
         newStats[s] = Math.max(newStats[s], overrides[s]);
@@ -1456,7 +1456,7 @@ export default function CharacterSheet() {
                               </div>
                               <button 
                                 onClick={async () => {
-                                  let analyzedItem = { ...item, quantity: 1 };
+                                  let analyzedItem: any = { ...item, quantity: 1 };
                                   setAiLoading(true);
                                   try {
                                      const desc = extractText(item.entries);
@@ -1678,13 +1678,13 @@ export default function CharacterSheet() {
 
                                             {item.attributeBonuses && Object.entries(item.attributeBonuses).map(([stat, val]) => (
                                                <span key={stat} className="text-[9px] font-bold uppercase tracking-widest text-green-400/60 border border-green-500/20 px-2 py-1 rounded-full bg-green-900/10">
-                                                  +{val} {stat}
+                                                  +{val as string} {stat}
                                                </span>
                                             ))}
 
                                             {item.attributeOverrides && Object.entries(item.attributeOverrides).map(([stat, val]) => (
                                                <span key={stat} className="text-[9px] font-bold uppercase tracking-widest text-cyan-400/60 border border-cyan-500/20 px-2 py-1 rounded-full bg-cyan-900/10">
-                                                  {stat} SET TO {val}
+                                                  {stat} SET TO {val as string}
                                                </span>
                                             ))}
                                          </div>
