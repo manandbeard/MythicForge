@@ -1,0 +1,787 @@
+[
+  {
+    "id": "aberrant-heir",
+    "name": "Aberrant Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "acolyte",
+    "name": "Acolyte",
+    "source": "PHB"
+  },
+  {
+    "id": "acolyte",
+    "name": "Acolyte",
+    "source": "XPHB"
+  },
+  {
+    "id": "anthropologist",
+    "name": "Anthropologist",
+    "source": "ToA"
+  },
+  {
+    "id": "archaeologist",
+    "name": "Archaeologist",
+    "source": "EFA"
+  },
+  {
+    "id": "archaeologist",
+    "name": "Archaeologist",
+    "source": "ToA"
+  },
+  {
+    "id": "artisan",
+    "name": "Artisan",
+    "source": "XPHB"
+  },
+  {
+    "id": "astral-drifter",
+    "name": "Astral Drifter",
+    "source": "AAG"
+  },
+  {
+    "id": "athlete",
+    "name": "Athlete",
+    "source": "MOT"
+  },
+  {
+    "id": "augen-trust-(spy)",
+    "name": "Augen Trust (Spy)",
+    "source": "EGW"
+  },
+  {
+    "id": "azorius-functionary",
+    "name": "Azorius Functionary",
+    "source": "GGR"
+  },
+  {
+    "id": "baldur's-gate-acolyte",
+    "name": "Baldur's Gate Acolyte",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-charlatan",
+    "name": "Baldur's Gate Charlatan",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-criminal",
+    "name": "Baldur's Gate Criminal",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-entertainer",
+    "name": "Baldur's Gate Entertainer",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-folk-hero",
+    "name": "Baldur's Gate Folk Hero",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-guild-artisan",
+    "name": "Baldur's Gate Guild Artisan",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-hermit",
+    "name": "Baldur's Gate Hermit",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-noble",
+    "name": "Baldur's Gate Noble",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-outlander",
+    "name": "Baldur's Gate Outlander",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-sage",
+    "name": "Baldur's Gate Sage",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-sailor",
+    "name": "Baldur's Gate Sailor",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-soldier",
+    "name": "Baldur's Gate Soldier",
+    "source": "BGDIA"
+  },
+  {
+    "id": "baldur's-gate-urchin",
+    "name": "Baldur's Gate Urchin",
+    "source": "BGDIA"
+  },
+  {
+    "id": "boros-legionnaire",
+    "name": "Boros Legionnaire",
+    "source": "GGR"
+  },
+  {
+    "id": "carouser",
+    "name": "Carouser",
+    "source": "ABH"
+  },
+  {
+    "id": "celebrity-adventurer's-scion",
+    "name": "Celebrity Adventurer's Scion",
+    "source": "AI"
+  },
+  {
+    "id": "charlatan",
+    "name": "Charlatan",
+    "source": "PHB"
+  },
+  {
+    "id": "charlatan",
+    "name": "Charlatan",
+    "source": "XPHB"
+  },
+  {
+    "id": "chondathan-freebooter",
+    "name": "Chondathan Freebooter",
+    "source": "FRHoF"
+  },
+  {
+    "id": "city-watch",
+    "name": "City Watch",
+    "source": "SCAG"
+  },
+  {
+    "id": "clan-crafter",
+    "name": "Clan Crafter",
+    "source": "SCAG"
+  },
+  {
+    "id": "cloistered-scholar",
+    "name": "Cloistered Scholar",
+    "source": "SCAG"
+  },
+  {
+    "id": "cobalt-scholar-(sage)",
+    "name": "Cobalt Scholar (Sage)",
+    "source": "EGW"
+  },
+  {
+    "id": "courtier",
+    "name": "Courtier",
+    "source": "SCAG"
+  },
+  {
+    "id": "criminal",
+    "name": "Criminal",
+    "source": "PHB"
+  },
+  {
+    "id": "criminal",
+    "name": "Criminal",
+    "source": "XPHB"
+  },
+  {
+    "id": "custom-background",
+    "name": "Custom Background",
+    "source": "PHB"
+  },
+  {
+    "id": "dead-magic-dweller",
+    "name": "Dead Magic Dweller",
+    "source": "FRHoF"
+  },
+  {
+    "id": "dimir-operative",
+    "name": "Dimir Operative",
+    "source": "GGR"
+  },
+  {
+    "id": "dragon-cultist",
+    "name": "Dragon Cultist",
+    "source": "FRHoF"
+  },
+  {
+    "id": "emerald-enclave-caretaker",
+    "name": "Emerald Enclave Caretaker",
+    "source": "FRHoF"
+  },
+  {
+    "id": "entertainer",
+    "name": "Entertainer",
+    "source": "PHB"
+  },
+  {
+    "id": "entertainer",
+    "name": "Entertainer",
+    "source": "XPHB"
+  },
+  {
+    "id": "faceless",
+    "name": "Faceless",
+    "source": "BGDIA"
+  },
+  {
+    "id": "faction-agent",
+    "name": "Faction Agent",
+    "source": "SCAG"
+  },
+  {
+    "id": "failed-merchant",
+    "name": "Failed Merchant",
+    "source": "AI"
+  },
+  {
+    "id": "far-traveler",
+    "name": "Far Traveler",
+    "source": "SCAG"
+  },
+  {
+    "id": "farmer",
+    "name": "Farmer",
+    "source": "XPHB"
+  },
+  {
+    "id": "feylost",
+    "name": "Feylost",
+    "source": "WBtW"
+  },
+  {
+    "id": "fisher",
+    "name": "Fisher",
+    "source": "GoS"
+  },
+  {
+    "id": "flaming-fist-mercenary",
+    "name": "Flaming Fist Mercenary",
+    "source": "FRHoF"
+  },
+  {
+    "id": "folk-hero",
+    "name": "Folk Hero",
+    "source": "PHB"
+  },
+  {
+    "id": "gambler",
+    "name": "Gambler",
+    "source": "AI"
+  },
+  {
+    "id": "gate-warden",
+    "name": "Gate Warden",
+    "source": "SatO"
+  },
+  {
+    "id": "genie-touched",
+    "name": "Genie Touched",
+    "source": "FRHoF"
+  },
+  {
+    "id": "giant-foundling",
+    "name": "Giant Foundling",
+    "source": "BGG"
+  },
+  {
+    "id": "golgari-agent",
+    "name": "Golgari Agent",
+    "source": "GGR"
+  },
+  {
+    "id": "grinner",
+    "name": "Grinner",
+    "source": "EGW"
+  },
+  {
+    "id": "gruul-anarch",
+    "name": "Gruul Anarch",
+    "source": "GGR"
+  },
+  {
+    "id": "guard",
+    "name": "Guard",
+    "source": "XPHB"
+  },
+  {
+    "id": "guide",
+    "name": "Guide",
+    "source": "XPHB"
+  },
+  {
+    "id": "guild-artisan",
+    "name": "Guild Artisan",
+    "source": "PHB"
+  },
+  {
+    "id": "harper",
+    "name": "Harper",
+    "source": "FRHoF"
+  },
+  {
+    "id": "haunted-one",
+    "name": "Haunted One",
+    "source": "VRGR"
+  },
+  {
+    "id": "hermit",
+    "name": "Hermit",
+    "source": "PHB"
+  },
+  {
+    "id": "hermit",
+    "name": "Hermit",
+    "source": "XPHB"
+  },
+  {
+    "id": "house-agent",
+    "name": "House Agent",
+    "source": "EFA"
+  },
+  {
+    "id": "house-agent",
+    "name": "House Agent",
+    "source": "ERLW"
+  },
+  {
+    "id": "house-cannith-heir",
+    "name": "House Cannith Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-deneith-heir",
+    "name": "House Deneith Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-ghallanda-heir",
+    "name": "House Ghallanda Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-jorasco-heir",
+    "name": "House Jorasco Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-kundarak-heir",
+    "name": "House Kundarak Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-lyrandar-heir",
+    "name": "House Lyrandar Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-medani-heir",
+    "name": "House Medani Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-orien-heir",
+    "name": "House Orien Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-phiarlan-heir",
+    "name": "House Phiarlan Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-sivis-heir",
+    "name": "House Sivis Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-tharashk-heir",
+    "name": "House Tharashk Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-thuranni-heir",
+    "name": "House Thuranni Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "house-vadalis-heir",
+    "name": "House Vadalis Heir",
+    "source": "EFA"
+  },
+  {
+    "id": "ice-fisher",
+    "name": "Ice Fisher",
+    "source": "FRHoF"
+  },
+  {
+    "id": "inheritor",
+    "name": "Inheritor",
+    "source": "SCAG"
+  },
+  {
+    "id": "initiate",
+    "name": "Initiate",
+    "source": "PSA"
+  },
+  {
+    "id": "initiate-(dissenter)",
+    "name": "Initiate (Dissenter)",
+    "source": "PSA"
+  },
+  {
+    "id": "inquisitive",
+    "name": "Inquisitive",
+    "source": "EFA"
+  },
+  {
+    "id": "inquisitor",
+    "name": "Inquisitor",
+    "source": "PSI"
+  },
+  {
+    "id": "investigator",
+    "name": "Investigator",
+    "source": "VRGR"
+  },
+  {
+    "id": "izzet-engineer",
+    "name": "Izzet Engineer",
+    "source": "GGR"
+  },
+  {
+    "id": "knight-of-solamnia",
+    "name": "Knight of Solamnia",
+    "source": "DSotDQ"
+  },
+  {
+    "id": "knight-of-the-gauntlet",
+    "name": "Knight of the Gauntlet",
+    "source": "FRHoF"
+  },
+  {
+    "id": "knight-of-the-order",
+    "name": "Knight of the Order",
+    "source": "SCAG"
+  },
+  {
+    "id": "lords'-alliance-vassal",
+    "name": "Lords' Alliance Vassal",
+    "source": "FRHoF"
+  },
+  {
+    "id": "lorehold-student",
+    "name": "Lorehold Student",
+    "source": "SCC"
+  },
+  {
+    "id": "lorwyn-expert",
+    "name": "Lorwyn Expert",
+    "source": "LFL"
+  },
+  {
+    "id": "luxonborn-(acolyte)",
+    "name": "Luxonborn (Acolyte)",
+    "source": "EGW"
+  },
+  {
+    "id": "mage-of-high-sorcery",
+    "name": "Mage of High Sorcery",
+    "source": "DSotDQ"
+  },
+  {
+    "id": "marine",
+    "name": "Marine",
+    "source": "GoS"
+  },
+  {
+    "id": "mercenary-veteran",
+    "name": "Mercenary Veteran",
+    "source": "SCAG"
+  },
+  {
+    "id": "merchant",
+    "name": "Merchant",
+    "source": "XPHB"
+  },
+  {
+    "id": "moonwell-pilgrim",
+    "name": "Moonwell Pilgrim",
+    "source": "FRHoF"
+  },
+  {
+    "id": "mulhorandi-tomb-raider",
+    "name": "Mulhorandi Tomb Raider",
+    "source": "FRHoF"
+  },
+  {
+    "id": "myriad-operative-(criminal)",
+    "name": "Myriad Operative (Criminal)",
+    "source": "EGW"
+  },
+  {
+    "id": "mythalkeeper",
+    "name": "Mythalkeeper",
+    "source": "FRHoF"
+  },
+  {
+    "id": "noble",
+    "name": "Noble",
+    "source": "PHB"
+  },
+  {
+    "id": "noble",
+    "name": "Noble",
+    "source": "XPHB"
+  },
+  {
+    "id": "orzhov-representative",
+    "name": "Orzhov Representative",
+    "source": "GGR"
+  },
+  {
+    "id": "outlander",
+    "name": "Outlander",
+    "source": "PHB"
+  },
+  {
+    "id": "plaintiff",
+    "name": "Plaintiff",
+    "source": "AI"
+  },
+  {
+    "id": "planar-philosopher",
+    "name": "Planar Philosopher",
+    "source": "SatO"
+  },
+  {
+    "id": "prismari-student",
+    "name": "Prismari Student",
+    "source": "SCC"
+  },
+  {
+    "id": "purple-dragon-squire",
+    "name": "Purple Dragon Squire",
+    "source": "FRHoF"
+  },
+  {
+    "id": "quandrix-student",
+    "name": "Quandrix Student",
+    "source": "SCC"
+  },
+  {
+    "id": "rakdos-cultist",
+    "name": "Rakdos Cultist",
+    "source": "GGR"
+  },
+  {
+    "id": "rashemi-wanderer",
+    "name": "Rashemi Wanderer",
+    "source": "FRHoF"
+  },
+  {
+    "id": "revelry-pirate-(sailor)",
+    "name": "Revelry Pirate (Sailor)",
+    "source": "EGW"
+  },
+  {
+    "id": "rewarded",
+    "name": "Rewarded",
+    "source": "BMT"
+  },
+  {
+    "id": "rival-intern",
+    "name": "Rival Intern",
+    "source": "AI"
+  },
+  {
+    "id": "ruined",
+    "name": "Ruined",
+    "source": "BMT"
+  },
+  {
+    "id": "rune-carver",
+    "name": "Rune Carver",
+    "source": "BGG"
+  },
+  {
+    "id": "sage",
+    "name": "Sage",
+    "source": "PHB"
+  },
+  {
+    "id": "sage",
+    "name": "Sage",
+    "source": "XPHB"
+  },
+  {
+    "id": "sailor",
+    "name": "Sailor",
+    "source": "PHB"
+  },
+  {
+    "id": "sailor",
+    "name": "Sailor",
+    "source": "XPHB"
+  },
+  {
+    "id": "scribe",
+    "name": "Scribe",
+    "source": "XPHB"
+  },
+  {
+    "id": "selesnya-initiate",
+    "name": "Selesnya Initiate",
+    "source": "GGR"
+  },
+  {
+    "id": "shadowmasters-exile",
+    "name": "Shadowmasters Exile",
+    "source": "FRHoF"
+  },
+  {
+    "id": "shadowmoor-expert",
+    "name": "Shadowmoor Expert",
+    "source": "LFL"
+  },
+  {
+    "id": "shipwright",
+    "name": "Shipwright",
+    "source": "GoS"
+  },
+  {
+    "id": "silverquill-student",
+    "name": "Silverquill Student",
+    "source": "SCC"
+  },
+  {
+    "id": "simic-scientist",
+    "name": "Simic Scientist",
+    "source": "GGR"
+  },
+  {
+    "id": "smuggler",
+    "name": "Smuggler",
+    "source": "GoS"
+  },
+  {
+    "id": "soldier",
+    "name": "Soldier",
+    "source": "PHB"
+  },
+  {
+    "id": "soldier",
+    "name": "Soldier",
+    "source": "XPHB"
+  },
+  {
+    "id": "spellfire-initiate",
+    "name": "Spellfire Initiate",
+    "source": "FRHoF"
+  },
+  {
+    "id": "urban-bounty-hunter",
+    "name": "Urban Bounty Hunter",
+    "source": "SCAG"
+  },
+  {
+    "id": "urchin",
+    "name": "Urchin",
+    "source": "PHB"
+  },
+  {
+    "id": "uthgardt-tribe-member",
+    "name": "Uthgardt Tribe Member",
+    "source": "SCAG"
+  },
+  {
+    "id": "vampire-devotee",
+    "name": "Vampire Devotee",
+    "source": "ABH"
+  },
+  {
+    "id": "vampire-survivor",
+    "name": "Vampire Survivor",
+    "source": "ABH"
+  },
+  {
+    "id": "variant-city-watch-(investigator)",
+    "name": "Variant City Watch (Investigator)",
+    "source": "SCAG"
+  },
+  {
+    "id": "variant-criminal-(spy)",
+    "name": "Variant Criminal (Spy)",
+    "source": "PHB"
+  },
+  {
+    "id": "variant-entertainer-(gladiator)",
+    "name": "Variant Entertainer (Gladiator)",
+    "source": "PHB"
+  },
+  {
+    "id": "variant-guild-artisan-(guild-merchant)",
+    "name": "Variant Guild Artisan (Guild Merchant)",
+    "source": "PHB"
+  },
+  {
+    "id": "variant-noble-(knight)",
+    "name": "Variant Noble (Knight)",
+    "source": "PHB"
+  },
+  {
+    "id": "variant-noble-(retainers)",
+    "name": "Variant Noble (Retainers)",
+    "source": "PHB"
+  },
+  {
+    "id": "variant-sailor-(pirate)",
+    "name": "Variant Sailor (Pirate)",
+    "source": "PHB"
+  },
+  {
+    "id": "vizier",
+    "name": "Vizier",
+    "source": "PSA"
+  },
+  {
+    "id": "vizier-(dissenter)",
+    "name": "Vizier (Dissenter)",
+    "source": "PSA"
+  },
+  {
+    "id": "volstrucker-agent",
+    "name": "Volstrucker Agent",
+    "source": "EGW"
+  },
+  {
+    "id": "waterdhavian-noble",
+    "name": "Waterdhavian Noble",
+    "source": "SCAG"
+  },
+  {
+    "id": "wayfarer",
+    "name": "Wayfarer",
+    "source": "XPHB"
+  },
+  {
+    "id": "wildspacer",
+    "name": "Wildspacer",
+    "source": "AAG"
+  },
+  {
+    "id": "witchlight-hand",
+    "name": "Witchlight Hand",
+    "source": "WBtW"
+  },
+  {
+    "id": "witherbloom-student",
+    "name": "Witherbloom Student",
+    "source": "SCC"
+  },
+  {
+    "id": "zhentarim-mercenary",
+    "name": "Zhentarim Mercenary",
+    "source": "FRHoF"
+  }
+]

@@ -19,6 +19,17 @@ service cloud.firestore {
             && data.name is string && data.name.size() > 0 && data.name.size() <= 200;
     }
 
+    function isValidCampaign(data) {
+        return data.uid == request.auth.uid
+            && data.name is string && data.name.size() > 0 && data.name.size() <= 200;
+    }
+
+    function isValidCampaignNote(data) {
+        return data.title is string && data.title.size() > 0 && data.title.size() <= 200
+            && data.content is string
+            && data.type is string && data.type in ["world", "plot", "location", "session", "general"];
+    }
+
     match /characters/{characterId} {
       allow get: if isSignedIn() && isValidId(characterId) && existing().uid == request.auth.uid;
       allow list: if isSignedIn() && existing().uid == request.auth.uid;
@@ -48,8 +59,45 @@ service cloud.firestore {
         allow write: if isSignedIn() && isValidId(userId) && request.auth.uid == userId;
     }
 
+    match /campaigns/{campaignId} {
+      allow get: if isSignedIn() && isValidId(campaignId) && existing().uid == request.auth.uid;
+      allow list: if isSignedIn() && existing().uid == request.auth.uid;
+      
+      allow create: if isSignedIn()
+        && isValidId(campaignId)
+        && isValidCampaign(incoming());
+        
+      allow update: if isSignedIn()
+        && isValidId(campaignId)
+        && existing().uid == request.auth.uid
+        && incoming().uid == existing().uid
+        && isValidCampaign(incoming());
+        
+      allow delete: if isSignedIn() && isValidId(campaignId) && existing().uid == request.auth.uid;
+    }
+
+    match /campaigns/{campaignId}/notes/{noteId} {
+      allow get: if isSignedIn() && isValidId(campaignId) && isValidId(noteId);
+      allow list: if isSignedIn() && isValidId(campaignId);
+      
+      allow create: if isSignedIn()
+        && isValidId(campaignId) && isValidId(noteId)
+        && get(/databases/$(database)/documents/campaigns/$(campaignId)).data.uid == request.auth.uid
+        && isValidCampaignNote(incoming());
+        
+      allow update: if isSignedIn()
+        && isValidId(campaignId) && isValidId(noteId)
+        && get(/databases/$(database)/documents/campaigns/$(campaignId)).data.uid == request.auth.uid
+        && isValidCampaignNote(incoming());
+        
+      allow delete: if isSignedIn()
+        && isValidId(campaignId) && isValidId(noteId)
+        && get(/databases/$(database)/documents/campaigns/$(campaignId)).data.uid == request.auth.uid;
+    }
+
     match /campaigns/{campaignId}/rolls/{rollId} {
-      allow read: if isSignedIn() && isValidId(campaignId);
+      allow get: if isSignedIn() && isValidId(campaignId) && isValidId(rollId);
+      allow list: if isSignedIn() && isValidId(campaignId);
 
       allow create: if isSignedIn()
         && isValidId(campaignId) && isValidId(rollId)

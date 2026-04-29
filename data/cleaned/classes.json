@@ -1,0 +1,74 @@
+[
+  {
+    "id": "barbarian",
+    "name": "Barbarian",
+    "source": "PHB",
+    "hitDice": "d12"
+  },
+  {
+    "id": "bard",
+    "name": "Bard",
+    "source": "PHB",
+    "hitDice": "d8"
+  },
+  {
+    "id": "cleric",
+    "name": "Cleric",
+    "source": "PHB",
+    "hitDice": "d8"
+  },
+  {
+    "id": "druid",
+    "name": "Druid",
+    "source": "PHB",
+    "hitDice": "d8"
+  },
+  {
+    "id": "fighter",
+    "name": "Fighter",
+    "source": "PHB",
+    "hitDice": "d10"
+  },
+  {
+    "id": "monk",
+    "name": "Monk",
+    "source": "PHB",
+    "hitDice": "d8"
+  },
+  {
+    "id": "paladin",
+    "name": "Paladin",
+    "source": "PHB",
+    "hitDice": "d10"
+  },
+  {
+    "id": "ranger",
+    "name": "Ranger",
+    "source": "PHB",
+    "hitDice": "d10"
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "source": "PHB",
+    "hitDice": "d8"
+  },
+  {
+    "id": "sorcerer",
+    "name": "Sorcerer",
+    "source": "PHB",
+    "hitDice": "d6"
+  },
+  {
+    "id": "warlock",
+    "name": "Warlock",
+    "source": "PHB",
+    "hitDice": "d8"
+  },
+  {
+    "id": "wizard",
+    "name": "Wizard",
+    "source": "PHB",
+    "hitDice": "d6"
+  }
+]

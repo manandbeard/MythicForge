@@ -52,6 +52,32 @@
         "source": { "type": "string" }
       }
     },
+    "Campaign": {
+      "title": "Campaign",
+      "description": "A D&D Campaign",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The owner/DM's user ID" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name"]
+    },
+    "CampaignNote": {
+      "title": "Campaign Note",
+      "description": "A note within a campaign",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "type": { "type": "string", "enum": ["world", "plot", "location", "session", "general"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "content", "type"]
+    },
     "Roll": {
       "title": "Roll",
       "description": "A dice roll shared in a campaign",
@@ -76,6 +102,14 @@
     "/library/{dataId}": {
       "schema": "LibraryData",
       "description": "Reference data for spells, items, etc."
+    },
+    "/campaigns/{campaignId}": {
+      "schema": "Campaign",
+      "description": "Stores campaigns"
+    },
+    "/campaigns/{campaignId}/notes/{noteId}": {
+      "schema": "CampaignNote",
+      "description": "Stores notes for a campaign"
     },
     "/campaigns/{campaignId}/rolls/{rollId}": {
       "schema": "Roll",

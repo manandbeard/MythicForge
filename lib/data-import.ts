@@ -151,6 +151,40 @@ export const fetchRaces = async (): Promise<any[]> => {
   }
 };
 
+export const fetchMonsters = async (): Promise<any[]> => {
+  try {
+    const index = await fetchJson(`bestiary/index.json`);
+    const promises = Object.values(index).map((file: any) => fetchJson(`bestiary/${file}`));
+    const files = await Promise.all(promises);
+    const combined = files.flatMap((fileData: any) => fileData.monster || []);
+    return deduplicateData(combined);
+  } catch (error) {
+    console.error('Error fetching monsters:', error);
+    return [];
+  }
+};
+
+export const fetchConditionsDiseases = async (): Promise<any[]> => {
+  try {
+    const data = await fetchJson(`conditionsdiseases.json`);
+    const combined = [...(data.condition || []), ...(data.disease || []), ...(data.status || [])];
+    return deduplicateData(combined);
+  } catch (error) {
+    console.error('Error fetching conditions/diseases:', error);
+    return [];
+  }
+};
+
+export const fetchActions = async (): Promise<any[]> => {
+  try {
+    const data = await fetchJson(`actions.json`);
+    return deduplicateData(data.action || []);
+  } catch (error) {
+    console.error('Error fetching actions:', error);
+    return [];
+  }
+};
+
 export const fetchClasses = async (): Promise<any[]> => {
   try {
     const index = await fetchJson(`class/index.json`);
@@ -162,7 +196,19 @@ export const fetchClasses = async (): Promise<any[]> => {
     const classFiles = await Promise.all(classPromises);
     
     const allClasses = classFiles.flatMap((fileData: any) => fileData.class || []);
-    return deduplicateData(allClasses);
+    const allSubclasses = classFiles.flatMap((fileData: any) => fileData.subclass || []);
+    
+    const uniqueClasses = deduplicateData(allClasses);
+    const uniqueSubclasses = deduplicateData(allSubclasses);
+
+    // attach subclasses to classes
+    uniqueClasses.forEach((c: any) => {
+       c.subclasses = uniqueSubclasses.filter((sc: any) => 
+          sc.className === c.name && sc.classSource === c.source
+       );
+    });
+
+    return uniqueClasses;
   } catch (error) {
     console.error('Error fetching classes:', error);
     return [];

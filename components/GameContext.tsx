@@ -329,34 +329,34 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
                     <motion.div key="rolling" className="w-full h-full min-h-[200px] relative">
                         {show3D && (
                           <Dice3DManager 
-                            dice={(
+                            dice={
                               activeCombo && comboResult 
                                 ? activeCombo.flatMap((req, idx) => {
                                     const res = comboResult[idx];
                                     const mode = idx === 0 ? rollMode : 'normal';
                                     if (req.type === 20 && req.count === 1 && mode !== 'normal') {
                                         return [
-                                            { type: 20 as any, targetValue: res.individual[0], mode: mode },
-                                            { type: 20 as any, targetValue: res.dropped!, mode: mode }
+                                            { type: 20 as DiceType, targetValue: res.individual[0], mode: mode as any },
+                                            { type: 20 as DiceType, targetValue: res.dropped!, mode: mode as any }
                                         ];
                                     }
                                     return Array.from({ length: req.count }).map((_, i) => ({
-                                        type: req.type as any,
+                                        type: req.type as DiceType,
                                         targetValue: res.individual[i],
-                                        mode: 'normal'
+                                        mode: 'normal' as any
                                     }));
                                 })
                                 : rollMode === 'advantage' || rollMode === 'disadvantage' 
                                  ? [
-                                     { type: 20 as any, targetValue: rollResult?.individual[0] || 20, mode: rollMode },
-                                     { type: 20 as any, targetValue: rollResult?.dropped || 1, mode: rollMode }
+                                     { type: 20 as DiceType, targetValue: rollResult?.individual[0] || 20, mode: rollMode as any },
+                                     { type: 20 as DiceType, targetValue: rollResult?.dropped || 1, mode: rollMode as any }
                                    ]
                                  : Array.from({ length: activeRoll!.count }).map((_, i) => ({
-                                     type: activeRoll!.type as any,
+                                     type: activeRoll!.type as DiceType,
                                      targetValue: rollResult?.individual[i] || activeRoll!.type,
-                                     mode: 'normal'
+                                     mode: 'normal' as any
                                    }))
-                            ) as any}
+                            }
                             onSettled={handle3DSettled}
                           />
                         )}

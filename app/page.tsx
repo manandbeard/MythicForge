@@ -7,14 +7,13 @@ import {
   Plus, 
   Search, 
   Book, 
-  Swords, 
-  LogOut, 
   LogIn, 
+  LogOut,
   Ghost,
+  Swords,
+  Wand2,
   ShieldCheck,
-  Zap,
-  Flame,
-  Wand2
+  Sparkles
 } from 'lucide-react';
 import { 
   signInWithPopup, 
@@ -27,46 +26,58 @@ import {
   collection, 
   query, 
   where, 
-  onSnapshot, 
-  addDoc, 
-  serverTimestamp 
+  onSnapshot
 } from 'firebase/firestore';
 import { auth, db, OperationType, handleFirestoreError } from '@/lib/firebase';
+import { useRouter } from 'next/navigation';
+import { MythosButton, MythosPanel, MythosInput, MythosLabel } from '@/components/mythos/UI';
 import CharacterCard from '@/components/CharacterCard';
 import DiceRoller from '@/components/DiceRoller';
-import { useRouter } from 'next/navigation';
 
 export default function LandingPage() {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
+  const [campaigns, setCampaigns] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [activeTab, setActiveTab] = useState<'characters' | 'campaigns'>('characters');
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (u) => {
       setUser(u);
       setLoading(false);
+      if (!u) {
+        setCharacters([]);
+        setCampaigns([]);
+      }
     });
     return () => unsubscribe();
   }, []);
 
   useEffect(() => {
-    if (!user) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setCharacters([]);
-      return;
-    }
+    if (!user) return;
 
-    const q = query(collection(db, 'characters'), where('uid', '==', user.uid));
-    const unsub = onSnapshot(q, (snapshot) => {
+    const qChars = query(collection(db, 'characters'), where('uid', '==', user.uid));
+    const unsubChars = onSnapshot(qChars, (snapshot) => {
       const chars = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setCharacters(chars);
     }, (error) => {
       handleFirestoreError(error, OperationType.LIST, 'characters');
     });
 
-    return () => unsub();
+    const qCamps = query(collection(db, 'campaigns'), where('uid', '==', user.uid));
+    const unsubCamps = onSnapshot(qCamps, (snapshot) => {
+      const camps = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setCampaigns(camps);
+    }, (error) => {
+      handleFirestoreError(error, OperationType.LIST, 'campaigns');
+    });
+
+    return () => {
+      unsubChars();
+      unsubCamps();
+    };
   }, [user]);
 
   const handleSignIn = async () => {
@@ -78,25 +89,21 @@ export default function LandingPage() {
     }
   };
 
-  const createNewCharacter = () => {
-    if (!user) return;
-    router.push('/builder');
-  };
-
   const filteredCharacters = characters.filter(c => 
-    c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    c.class.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    c.race.toLowerCase().includes(searchTerm.toLowerCase())
+    c.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    c.class?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    c.race?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredCampaigns = campaigns.filter(c => 
+    c.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    c.description?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[var(--deep-slate)]">
-        <motion.div
-           animate={{ rotate: 360 }}
-           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-           className="text-[var(--gold-accent)]"
-        >
+        <motion.div animate={{ rotate: 360 }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} className="text-[var(--gold-accent)]">
           <Ghost size={48} />
         </motion.div>
         <p className="mt-4 font-serif italic text-lg animate-pulse text-[var(--gold-accent)]">Whispering to the Archive...</p>
@@ -105,194 +112,178 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Navigation / Header */}
-      <header className="flex flex-col md:flex-row justify-between items-end md:items-center mb-16 border-b-2 border-[var(--gold-accent)] pb-8">
-        <div>
-          <Image src="https://picsum.photos/seed/eldritch/200/200" alt="Logo" width={40} height={40} className="mb-4 rounded-full border border-[var(--gold-accent)]" />
-          <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-[var(--gold-accent)] leading-none mb-2">
-            ELDRITCH<span className="italic font-light">ARCHIVE</span>
-          </h1>
-          <div className="flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-bold opacity-60 text-[var(--parchment)]">
-            <span>Grimoire Manager</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-accent)]" />
-            <span>AI Chronomancer</span>
-          </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 min-h-screen flex flex-col">
+      {/* Header */}
+      <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8 border-b border-[var(--gold-accent)]/20 pb-12">
+        <div className="space-y-2">
+           <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-[var(--gold-accent)] leading-none">
+             MYTHOS<span className="italic font-light">FORGE</span>
+           </h1>
+           <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] font-bold opacity-40 text-[var(--parchment)]">
+             <span>Ancient Archive</span>
+             <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-accent)]" />
+             <span>AI Chronomancer</span>
+           </div>
         </div>
 
-        <div className="mt-8 md:mt-0">
+        <div className="flex items-center gap-4">
           {user ? (
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-              <button
-                onClick={() => router.push('/combat')}
-                className="group flex flex-col items-center gap-1"
-              >
-                <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--blood-red)] group-hover:border-[var(--blood-red)] group-hover:text-white transition-all text-[var(--gold-accent)]">
-                  <Swords size={20} />
-                </div>
-                <span className="text-[10px] uppercase font-bold tracking-tighter text-[var(--gold-accent)]">Combat</span>
-              </button>
-              <button
-                onClick={() => router.push('/encounters')}
-                className="group flex flex-col items-center gap-1"
-              >
-                <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--gold-accent)] group-hover:text-[var(--deep-slate)] transition-all">
-                  <Ghost size={20} />
-                </div>
-                <span className="text-[10px] uppercase font-bold tracking-tighter">Encounters</span>
-              </button>
-              <button
-                onClick={() => router.push('/spellbook')}
-                className="group flex flex-col items-center gap-1"
-              >
-                <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--gold-accent)] group-hover:text-[var(--deep-slate)] transition-all">
-                  <Wand2 size={20} />
-                </div>
-                <span className="text-[10px] uppercase font-bold tracking-tighter">Spellbook</span>
-              </button>
-              <button
-                onClick={() => router.push('/history')}
-                className="group flex flex-col items-center gap-1"
-              >
-                <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--gold-accent)] group-hover:text-[var(--deep-slate)] transition-all">
-                  <Book size={20} />
-                </div>
-                <span className="text-[10px] uppercase font-bold tracking-tighter">History</span>
-              </button>
-              <div className="text-right hidden md:block border-l border-[var(--gold-accent)]/30 pl-4 sm:pl-6 ml-2 sm:ml-0">
+            <div className="flex items-center gap-6">
+              <div className="text-right hidden sm:block">
                 <p className="text-sm font-bold text-[var(--gold-accent)]">{user.displayName}</p>
-                <p className="text-[10px] uppercase tracking-widest opacity-60">High Archivist</p>
+                <p className="text-[10px] uppercase tracking-widest opacity-40">High Archivist</p>
               </div>
-              <button
-                onClick={() => signOut(auth)}
-                className="group flex flex-col items-center gap-1 ml-2 sm:ml-0"
-              >
-                <div className="p-3 border border-[var(--gold-accent)] rounded-full group-hover:bg-[var(--gold-accent)] group-hover:text-[var(--deep-slate)] transition-all">
-                  <LogOut size={20} />
-                </div>
-                <span className="text-[10px] uppercase font-bold tracking-tighter">Exit</span>
-              </button>
+              <MythosButton variant="outline" size="sm" onClick={() => signOut(auth)}>
+                <LogOut size={16} /> Exit Archive
+              </MythosButton>
             </div>
           ) : (
-            <button
-              onClick={handleSignIn}
-              className="group flex items-center gap-4 px-6 py-3 border-2 border-[var(--gold-accent)] rounded-full hover:bg-[var(--gold-accent)] hover:text-[var(--deep-slate)] transition-all font-bold"
-            >
-              <LogIn size={20} />
-              <span className="font-serif italic text-lg">Unseal the Archive</span>
-            </button>
+            <MythosButton variant="primary" onClick={handleSignIn}>
+              <LogIn size={18} /> Unseal the Archive
+            </MythosButton>
           )}
         </div>
       </header>
 
-      {!user ? (
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[50vh]">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-serif italic mb-6 leading-tight text-[var(--parchment)]">
-              Your legend is etched in <span className="underline decoration-[var(--gold-accent)] decoration-4 underline-offset-8">shadow and magic.</span>
-            </h2>
-            <p className="text-lg text-[var(--parchment)] opacity-80 leading-relaxed mb-8 font-serif">
-              Eldritch Archive is the definitive repository for the modern adventurer. 
-              Harness forbidden Chronomany to draft your past, and visualize your future through the eyes of the AI Oracle.
-            </p>
-            <div className="flex flex-wrap gap-4">
-               {[
-                 { icon: Swords, text: "Tactical Insight" },
-                 { icon: Book, text: "Grimoire Sync" },
-                 { icon: Wand2, text: "Ethereal Portraits" },
-                 { icon: ShieldCheck, text: "Vault Protection" }
-               ].map((feat, i) => (
-                 <div key={i} className="flex items-center gap-2 px-4 py-2 bg-black/40 border border-[var(--gold-accent)]/20 rounded-full text-xs font-bold uppercase tracking-wider text-[var(--gold-accent)]">
-                   <feat.icon size={14} />
-                   {feat.text}
-                 </div>
-               ))}
-            </div>
-          </div>
-          <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-2 border-[var(--gold-accent)]/50 group">
-            <Image 
-              src="https://picsum.photos/seed/eldritch-abyss/1000/1000" 
-              alt="Eldritch Abyss" 
-              fill
-              className="object-cover opacity-70 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-1000 group-hover:scale-105"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-[#0a0a0c]/80 to-transparent opacity-90" />
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 pointer-events-none">
-              <div className="flex flex-col gap-3">
-                <div className="self-start">
-                  <span className="px-3 py-1 bg-[var(--gold-accent)]/10 border border-[var(--gold-accent)]/40 text-[var(--gold-accent)] text-[10px] uppercase font-bold tracking-[0.3em] rounded-sm backdrop-blur-sm shadow-[0_0_15px_rgba(197,160,89,0.2)]">
-                    Ethereal Vision
-                  </span>
-                </div>
-                <p className="font-serif italic text-2xl md:text-3xl lg:text-4xl leading-tight text-white/90 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
-                  &quot;The shadows began to whisper names long forgotten, reaching out from the void...&quot;
+      {/* Main Content */}
+      <main className="flex-1">
+        {!user ? (
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-12">
+             <div className="space-y-8">
+                <h2 className="text-5xl md:text-6xl font-serif italic leading-tight text-[var(--parchment)]">
+                   Your legend is etched in <span className="text-[var(--gold-accent)]">shadow and gold.</span>
+                </h2>
+                <p className="text-lg opacity-70 leading-relaxed font-serif max-w-xl">
+                   MythosForge is the definitive repository for the modern adventurer. 
+                   Harness the powers of the AI Oracle to draft your past, and visualize your destiny through the eternal archive.
                 </p>
+                <div className="flex flex-wrap gap-4">
+                   {[
+                     { icon: Swords, text: "Tactical Insight" },
+                     { icon: Wand2, text: "Ethereal Portraits" },
+                     { icon: ShieldCheck, text: "Vault Protection" }
+                   ].map((feat, i) => (
+                     <div key={i} className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider text-[var(--gold-accent)]">
+                       <feat.icon size={12} />
+                       {feat.text}
+                     </div>
+                   ))}
+                </div>
+             </div>
+             <div className="relative aspect-square rounded-3xl overflow-hidden border border-[var(--gold-accent)]/20 group">
+                <Image 
+                  src="https://picsum.photos/seed/mythos-gate/1000/1000" 
+                  alt="Mythos Gate" 
+                  fill
+                  className="object-cover opacity-60 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-1000 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--deep-slate)] via-transparent to-transparent" />
+             </div>
+          </section>
+        ) : (
+          <section className="space-y-12">
+            {/* Dashboard Controls */}
+            <div className="flex flex-col gap-6">
+              <div className="flex gap-4 border-b border-[var(--gold-accent)]/20 pb-4">
+                <button
+                  onClick={() => setActiveTab('characters')}
+                  className={`text-sm tracking-[0.2em] uppercase font-bold transition-all ${
+                    activeTab === 'characters' ? 'text-[var(--gold-accent)]' : 'text-white/40 hover:text-white'
+                  }`}
+                >
+                  Characters
+                </button>
+                <button
+                  onClick={() => setActiveTab('campaigns')}
+                  className={`text-sm tracking-[0.2em] uppercase font-bold transition-all ${
+                    activeTab === 'campaigns' ? 'text-[var(--gold-accent)]' : 'text-white/40 hover:text-white'
+                  }`}
+                >
+                  Campaigns
+                </button>
+                <div className="w-px h-4 bg-white/20 self-center mx-2" />
+                <button
+                  onClick={() => router.push('/compendium')}
+                  className="text-sm tracking-[0.2em] uppercase font-bold transition-all text-white/40 hover:text-[var(--magic-blue)] flex items-center gap-2"
+                >
+                  <Book size={14} /> The Archive
+                </button>
+              </div>
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+                <div className="relative w-full max-w-md">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--gold-accent)] opacity-40" size={18} />
+                  <MythosInput
+                    placeholder={activeTab === 'characters' ? "Seek an adventurer..." : "Seek a campaign..."}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/5 border-none"
+                  />
+                </div>
+                <MythosButton onClick={() => activeTab === 'characters' ? router.push('/builder') : router.push('/campaigns/new')} size="lg">
+                  <Plus size={20} /> {activeTab === 'characters' ? 'Forge New Legend' : 'Forge New Campaign'}
+                </MythosButton>
               </div>
             </div>
-          </div>
-        </section>
-      ) : (
-        <section>
-          {/* Controls */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-12">
-            <div className="relative w-full max-w-md">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--gold-accent)] opacity-60" size={18} />
-              <input
-                type="text"
-                placeholder="Seek an adventurer..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-black/40 border-2 border-[var(--gold-accent)]/30 rounded-full font-serif italic focus:outline-none focus:border-[var(--gold-accent)] transition-all shadow-sm text-[var(--parchment)] placeholder:text-[var(--parchment)]/30"
-              />
-            </div>
-            <button
-              onClick={createNewCharacter}
-              className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-3 bg-[var(--gold-accent)] text-[var(--deep-slate)] rounded-full font-serif italic text-lg hover:shadow-[0_0_20px_rgba(197,160,89,0.4)] transition-all active:scale-95 font-bold"
-            >
-              <Plus size={20} />
-              Forge Legend
-            </button>
-          </div>
 
-          {/* Grid */}
-          <AnimatePresence mode="popLayout">
-            {filteredCharacters.length === 0 ? (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex flex-col items-center justify-center py-24 border-2 border-dashed border-[var(--gold-accent)]/20 rounded-3xl bg-black/20"
-              >
-                <div className="p-6 rounded-full bg-black/40 mb-4 border border-[var(--gold-accent)]/20">
-                   <Ghost size={48} className="text-[var(--gold-accent)] opacity-30" />
-                </div>
-                <h3 className="text-2xl font-serif italic mb-2 text-[var(--gold-accent)]">The Archive stays silent...</h3>
-                <p className="text-[var(--parchment)]/40 uppercase text-[10px] tracking-[0.3em] font-bold">Unseal a new legend above</p>
-              </motion.div>
-            ) : (
-              <motion.div 
-                layout
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-              >
-                {filteredCharacters.map((char) => (
-                  <motion.div key={char.id} layout transition={{ type: 'spring', damping: 20, stiffness: 100 }}>
-                    <CharacterCard id={char.id} character={char} />
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </section>
-      )}
-
-      {/* Decorative Rail Text */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 hidden xl:block pointer-events-none">
-        <p className="writing-vertical-rl rotate-180 text-[10px] uppercase tracking-[0.5em] font-bold opacity-10 text-[var(--gold-accent)]">
-          ETERNITY • KNOWLEDGE • DOOM
-        </p>
-      </div>
+            {/* Grid */}
+            <AnimatePresence mode="popLayout">
+              {(activeTab === 'characters' ? filteredCharacters : filteredCampaigns).length === 0 ? (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex flex-col items-center justify-center py-32 border-2 border-dashed border-[var(--gold-accent)]/10 rounded-3xl bg-black/20"
+                >
+                  {activeTab === 'characters' ? (
+                    <>
+                      <Ghost size={48} className="text-[var(--gold-accent)] opacity-10 mb-4" />
+                      <h3 className="text-2xl font-serif italic mb-2 text-[var(--gold-accent)] opacity-40">The Archive stays silent...</h3>
+                      <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-20">Forge a new legend to begin</p>
+                    </>
+                  ) : (
+                    <>
+                      <Book size={48} className="text-[var(--gold-accent)] opacity-10 mb-4" />
+                      <h3 className="text-2xl font-serif italic mb-2 text-[var(--gold-accent)] opacity-40">No worlds discovered yet...</h3>
+                      <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-20">Forge a new campaign to begin</p>
+                    </>
+                  )}
+                </motion.div>
+              ) : (
+                <motion.div 
+                  layout
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+                >
+                  {activeTab === 'characters' ? filteredCharacters.map((char) => (
+                    <motion.div key={char.id} layout transition={{ type: 'spring', damping: 20, stiffness: 100 }}>
+                      <CharacterCard id={char.id} character={char} />
+                    </motion.div>
+                  )) : filteredCampaigns.map((camp) => (
+                    <motion.div key={camp.id} layout transition={{ type: 'spring', damping: 20, stiffness: 100 }} className="p-0 overflow-hidden cursor-pointer group" onClick={() => router.push(`/campaigns/${camp.id}`)}>
+                      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-[var(--gold-accent)]/20 transition-all duration-500 group-hover:border-[var(--gold-accent)] group-hover:shadow-[0_0_30px_rgba(197,160,89,0.15)] bg-black/40">
+                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity" />
+                         <div className="absolute inset-0 z-20 p-6 flex flex-col justify-end">
+                            <h2 className="text-3xl font-serif font-black italic text-[var(--gold-accent)] mb-2 group-hover:scale-105 transition-transform origin-bottom-left leading-tight">
+                              {camp.name}
+                            </h2>
+                            <p className="text-sm font-serif italic text-[var(--parchment)] opacity-70 line-clamp-3">
+                              {camp.description}
+                            </p>
+                         </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </section>
+        )}
+      </main>
 
       <DiceRoller />
+      
+      <footer className="mt-24 pt-12 border-t border-white/5 text-[10px] uppercase font-bold tracking-[0.5em] text-center opacity-20">
+         Eternity • Knowledge • Doom
+      </footer>
     </div>
   );
 }
