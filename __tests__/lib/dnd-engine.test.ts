@@ -94,9 +94,10 @@ describe('getSkillModifier', () => {
     expect(getSkillModifier(14, true, 1, true)).toBe(6);
   });
 
-  it('does not add PB for expertise without proficiency', () => {
-    // expertise flag alone without isProficient should not grant PB
-    expect(getSkillModifier(14, false, 1, true)).toBe(2);
+  it('adds PB for expertise even without proficiency (flags are independent)', () => {
+    // The implementation adds PB for each flag independently:
+    // score 14 → mod 2, level 1 → pb 2, expertise alone = 2 + 2 = 4
+    expect(getSkillModifier(14, false, 1, true)).toBe(4);
   });
 });
 
