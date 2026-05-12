@@ -9,57 +9,10 @@
     "speed": 20
   },
   {
-    "id": "aarakocra",
-    "name": "Aarakocra",
-    "source": "EEPC",
-    "size": [
-      "M"
-    ],
-    "speed": 25
-  },
-  {
-    "id": "aarakocra",
-    "name": "Aarakocra",
-    "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
     "id": "aasimar",
     "name": "Aasimar",
     "source": "DMG",
     "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "aasimar",
-    "name": "Aasimar",
-    "source": "MPMM",
-    "size": [
-      "S",
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "aasimar",
-    "name": "Aasimar",
-    "source": "VGM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "aasimar",
-    "name": "Aasimar",
-    "source": "XPHB",
-    "size": [
-      "S",
       "M"
     ],
     "speed": 30
@@ -101,15 +54,6 @@
     "speed": 25
   },
   {
-    "id": "aven",
-    "name": "Aven",
-    "source": "PSD",
-    "size": [
-      "M"
-    ],
-    "speed": 25
-  },
-  {
     "id": "boggart",
     "name": "Boggart",
     "source": "LFL",
@@ -120,24 +64,6 @@
     "id": "bugbear",
     "name": "Bugbear",
     "source": "ERLW",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "bugbear",
-    "name": "Bugbear",
-    "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "bugbear",
-    "name": "Bugbear",
-    "source": "VGM",
     "size": [
       "M"
     ],
@@ -162,44 +88,9 @@
     "speed": 40
   },
   {
-    "id": "centaur",
-    "name": "Centaur",
-    "source": "MOT",
-    "size": "M",
-    "speed": 30
-  },
-  {
-    "id": "centaur",
-    "name": "Centaur",
-    "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 40
-  },
-  {
     "id": "changeling",
     "name": "Changeling",
     "source": "EFA",
-    "size": [
-      "S",
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "changeling",
-    "name": "Changeling",
-    "source": "ERLW",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "changeling",
-    "name": "Changeling",
-    "source": "MPMM",
     "size": [
       "S",
       "M"
@@ -236,28 +127,9 @@
     "speed": 35
   },
   {
-    "id": "dhampir",
-    "name": "Dhampir",
-    "source": "VRGR",
-    "size": [
-      "S",
-      "M"
-    ],
-    "speed": 35
-  },
-  {
     "id": "dragonborn",
     "name": "Dragonborn",
     "source": "PHB",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "dragonborn",
-    "name": "Dragonborn",
-    "source": "XPHB",
     "size": [
       "M"
     ],
@@ -309,15 +181,6 @@
     "speed": 25
   },
   {
-    "id": "dwarf",
-    "name": "Dwarf",
-    "source": "XPHB",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
     "id": "dwarf-(kaladesh)",
     "name": "Dwarf (Kaladesh)",
     "source": "PSK",
@@ -340,24 +203,6 @@
     "name": "Elf",
     "source": "LFL",
     "size": "M",
-    "speed": 30
-  },
-  {
-    "id": "elf",
-    "name": "Elf",
-    "source": "PHB",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "elf",
-    "name": "Elf",
-    "source": "XPHB",
-    "size": [
-      "M"
-    ],
     "speed": 30
   },
   {
@@ -395,27 +240,9 @@
     "speed": 30
   },
   {
-    "id": "fairy",
-    "name": "Fairy",
-    "source": "WBtW",
-    "size": [
-      "S"
-    ],
-    "speed": 30
-  },
-  {
     "id": "firbolg",
     "name": "Firbolg",
     "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "firbolg",
-    "name": "Firbolg",
-    "source": "VGM",
     "size": [
       "M"
     ],
@@ -433,16 +260,6 @@
     "name": "Genasi",
     "source": "EEPC",
     "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "genasi",
-    "name": "Genasi",
-    "source": "MPMM",
-    "size": [
-      "S",
       "M"
     ],
     "speed": 30
@@ -502,15 +319,6 @@
     "speed": 25
   },
   {
-    "id": "gnome",
-    "name": "Gnome",
-    "source": "XPHB",
-    "size": [
-      "S"
-    ],
-    "speed": 30
-  },
-  {
     "id": "gnome-(deep)",
     "name": "Gnome (Deep)",
     "source": "DMG",
@@ -523,49 +331,6 @@
     "id": "goblin",
     "name": "Goblin",
     "source": "DMG",
-    "size": [
-      "S"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "goblin",
-    "name": "Goblin",
-    "source": "ERLW",
-    "size": [
-      "S"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "goblin",
-    "name": "Goblin",
-    "source": "GGR",
-    "size": "M",
-    "speed": 30
-  },
-  {
-    "id": "goblin",
-    "name": "Goblin",
-    "source": "MPMM",
-    "size": [
-      "S"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "goblin",
-    "name": "Goblin",
-    "source": "PSZ",
-    "size": [
-      "S"
-    ],
-    "speed": 25
-  },
-  {
-    "id": "goblin",
-    "name": "Goblin",
-    "source": "VGM",
     "size": [
       "S"
     ],
@@ -586,24 +351,6 @@
       "M"
     ],
     "speed": 30
-  },
-  {
-    "id": "goliath",
-    "name": "Goliath",
-    "source": "VGM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "goliath",
-    "name": "Goliath",
-    "source": "XPHB",
-    "size": [
-      "M"
-    ],
-    "speed": 35
   },
   {
     "id": "grimlock",
@@ -661,28 +408,9 @@
     "speed": 25
   },
   {
-    "id": "halfling",
-    "name": "Halfling",
-    "source": "XPHB",
-    "size": [
-      "S"
-    ],
-    "speed": 30
-  },
-  {
     "id": "harengon",
     "name": "Harengon",
     "source": "MPMM",
-    "size": [
-      "S",
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "harengon",
-    "name": "Harengon",
-    "source": "WBtW",
     "size": [
       "S",
       "M"
@@ -709,45 +437,10 @@
     "speed": 30
   },
   {
-    "id": "hobgoblin",
-    "name": "Hobgoblin",
-    "source": "ERLW",
-    "size": "M",
-    "speed": 30
-  },
-  {
-    "id": "hobgoblin",
-    "name": "Hobgoblin",
-    "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "hobgoblin",
-    "name": "Hobgoblin",
-    "source": "VGM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
     "id": "human",
     "name": "Human",
     "source": "PHB",
     "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "human",
-    "name": "Human",
-    "source": "XPHB",
-    "size": [
-      "S",
       "M"
     ],
     "speed": 30
@@ -792,15 +485,6 @@
     "speed": 30
   },
   {
-    "id": "kalashtar",
-    "name": "Kalashtar",
-    "source": "ERLW",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
     "id": "kender",
     "name": "Kender",
     "source": "DSotDQ",
@@ -813,25 +497,6 @@
     "id": "kenku",
     "name": "Kenku",
     "source": "DMG",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "kenku",
-    "name": "Kenku",
-    "source": "MPMM",
-    "size": [
-      "S",
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "kenku",
-    "name": "Kenku",
-    "source": "VGM",
     "size": [
       "M"
     ],
@@ -873,24 +538,6 @@
     "speed": 30
   },
   {
-    "id": "kobold",
-    "name": "Kobold",
-    "source": "MPMM",
-    "size": [
-      "S"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "kobold",
-    "name": "Kobold",
-    "source": "VGM",
-    "size": [
-      "S"
-    ],
-    "speed": 30
-  },
-  {
     "id": "kor",
     "name": "Kor",
     "source": "PSZ",
@@ -921,24 +568,6 @@
     "id": "lizardfolk",
     "name": "Lizardfolk",
     "source": "DMG",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "lizardfolk",
-    "name": "Lizardfolk",
-    "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "lizardfolk",
-    "name": "Lizardfolk",
-    "source": "VGM",
     "size": [
       "M"
     ],
@@ -982,34 +611,9 @@
     "speed": 10
   },
   {
-    "id": "merfolk",
-    "name": "Merfolk",
-    "source": "PSZ",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
     "id": "minotaur",
     "name": "Minotaur",
     "source": "GGR",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "minotaur",
-    "name": "Minotaur",
-    "source": "MOT",
-    "size": "M",
-    "speed": 30
-  },
-  {
-    "id": "minotaur",
-    "name": "Minotaur",
-    "source": "MPMM",
     "size": [
       "M"
     ],
@@ -1037,49 +641,6 @@
     "id": "orc",
     "name": "Orc",
     "source": "DMG",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "orc",
-    "name": "Orc",
-    "source": "EGW",
-    "size": "M",
-    "speed": 30
-  },
-  {
-    "id": "orc",
-    "name": "Orc",
-    "source": "ERLW",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "orc",
-    "name": "Orc",
-    "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "orc",
-    "name": "Orc",
-    "source": "VGM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "orc",
-    "name": "Orc",
-    "source": "XPHB",
     "size": [
       "M"
     ],
@@ -1144,15 +705,6 @@
     "speed": 35
   },
   {
-    "id": "satyr",
-    "name": "Satyr",
-    "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 35
-  },
-  {
     "id": "sea-elf",
     "name": "Sea Elf",
     "source": "MPMM",
@@ -1176,24 +728,6 @@
     "source": "EFA",
     "size": [
       "S",
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "shifter",
-    "name": "Shifter",
-    "source": "ERLW",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "shifter",
-    "name": "Shifter",
-    "source": "MPMM",
-    "size": [
       "M"
     ],
     "speed": 30
@@ -1236,15 +770,6 @@
     "speed": 30
   },
   {
-    "id": "tabaxi",
-    "name": "Tabaxi",
-    "source": "VGM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
     "id": "thri-kreen",
     "name": "Thri-kreen",
     "source": "AAG",
@@ -1264,30 +789,11 @@
     "speed": 30
   },
   {
-    "id": "tiefling",
-    "name": "Tiefling",
-    "source": "XPHB",
-    "size": [
-      "S",
-      "M"
-    ],
-    "speed": 30
-  },
-  {
     "id": "tortle",
     "name": "Tortle",
     "source": "MPMM",
     "size": [
       "S",
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "tortle",
-    "name": "Tortle",
-    "source": "TTP",
-    "size": [
       "M"
     ],
     "speed": 30
@@ -1297,24 +803,6 @@
     "name": "Triton",
     "source": "MOT",
     "size": "M",
-    "speed": 30
-  },
-  {
-    "id": "triton",
-    "name": "Triton",
-    "source": "MPMM",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "triton",
-    "name": "Triton",
-    "source": "VGM",
-    "size": [
-      "M"
-    ],
     "speed": 30
   },
   {
@@ -1345,15 +833,6 @@
     "speed": 30
   },
   {
-    "id": "vedalken",
-    "name": "Vedalken",
-    "source": "PSK",
-    "size": [
-      "M"
-    ],
-    "speed": 30
-  },
-  {
     "id": "verdan",
     "name": "Verdan",
     "source": "AI",
@@ -1368,15 +847,6 @@
     "source": "EFA",
     "size": [
       "S",
-      "M"
-    ],
-    "speed": 30
-  },
-  {
-    "id": "warforged",
-    "name": "Warforged",
-    "source": "ERLW",
-    "size": [
       "M"
     ],
     "speed": 30

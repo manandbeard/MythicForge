@@ -83,7 +83,16 @@ async function processData() {
     console.warn('[WARN] Could not read spell files:', e.message);
   }
   
-  const cleanedSpells = allSpells.map(cleanSpell);
+  const spellMap = new Map();
+  allSpells.forEach(spell => {
+    const cleaned = cleanSpell(spell);
+    // Keep the first source, or you can prefer PHB over others if you want
+    if (!spellMap.has(cleaned.id)) {
+      spellMap.set(cleaned.id, cleaned);
+    }
+  });
+  
+  const cleanedSpells = Array.from(spellMap.values());
   await fs.writeFile(path.join(DATA_DIR, 'spells.json'), JSON.stringify(cleanedSpells, null, 2), 'utf8');
   console.log(`[OK] Indexed ${cleanedSpells.length} spells.`);
 
@@ -93,8 +102,15 @@ async function processData() {
   try {
     const itemsContent = await fs.readFile(itemsFile, 'utf8');
     const parsed = JSON.parse(itemsContent);
+    const itemMap = new Map();
     if (parsed.item && Array.isArray(parsed.item)) {
-      cleanedItems = parsed.item.map(cleanItem);
+      parsed.item.forEach((item: any) => {
+        const cleaned = cleanItem(item);
+        if (!itemMap.has(cleaned.id)) {
+          itemMap.set(cleaned.id, cleaned);
+        }
+      });
+      cleanedItems = Array.from(itemMap.values());
     }
     await fs.writeFile(path.join(DATA_DIR, 'items.json'), JSON.stringify(cleanedItems, null, 2), 'utf8');
     console.log(`[OK] Indexed ${cleanedItems.length} items.`);
@@ -108,8 +124,15 @@ async function processData() {
   try {
     const racesContent = await fs.readFile(racesFile, 'utf8');
     const parsed = JSON.parse(racesContent);
+    const raceMap = new Map();
     if (parsed.race && Array.isArray(parsed.race)) {
-      cleanedRaces = parsed.race.map(cleanRace);
+      parsed.race.forEach((race: any) => {
+        const cleaned = cleanRace(race);
+        if (!raceMap.has(cleaned.id)) {
+          raceMap.set(cleaned.id, cleaned);
+        }
+      });
+      cleanedRaces = Array.from(raceMap.values());
     }
     await fs.writeFile(path.join(DATA_DIR, 'races.json'), JSON.stringify(cleanedRaces, null, 2), 'utf8');
     console.log(`[OK] Indexed ${cleanedRaces.length} races.`);
@@ -141,8 +164,15 @@ async function processData() {
   try {
     const bgContent = await fs.readFile(bgFile, 'utf8');
     const parsed = JSON.parse(bgContent);
+    const bgMap = new Map();
     if (parsed.background && Array.isArray(parsed.background)) {
-      cleanedBackgrounds = parsed.background.map(cleanBackground);
+      parsed.background.forEach((bg: any) => {
+        const cleaned = cleanBackground(bg);
+        if (!bgMap.has(cleaned.id)) {
+          bgMap.set(cleaned.id, cleaned);
+        }
+      });
+      cleanedBackgrounds = Array.from(bgMap.values());
     }
     await fs.writeFile(path.join(DATA_DIR, 'backgrounds.json'), JSON.stringify(cleanedBackgrounds, null, 2), 'utf8');
     console.log(`[OK] Indexed ${cleanedBackgrounds.length} backgrounds.`);

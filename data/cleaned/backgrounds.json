@@ -10,11 +10,6 @@
     "source": "PHB"
   },
   {
-    "id": "acolyte",
-    "name": "Acolyte",
-    "source": "XPHB"
-  },
-  {
     "id": "anthropologist",
     "name": "Anthropologist",
     "source": "ToA"
@@ -23,11 +18,6 @@
     "id": "archaeologist",
     "name": "Archaeologist",
     "source": "EFA"
-  },
-  {
-    "id": "archaeologist",
-    "name": "Archaeologist",
-    "source": "ToA"
   },
   {
     "id": "artisan",
@@ -140,11 +130,6 @@
     "source": "PHB"
   },
   {
-    "id": "charlatan",
-    "name": "Charlatan",
-    "source": "XPHB"
-  },
-  {
     "id": "chondathan-freebooter",
     "name": "Chondathan Freebooter",
     "source": "FRHoF"
@@ -180,11 +165,6 @@
     "source": "PHB"
   },
   {
-    "id": "criminal",
-    "name": "Criminal",
-    "source": "XPHB"
-  },
-  {
     "id": "custom-background",
     "name": "Custom Background",
     "source": "PHB"
@@ -213,11 +193,6 @@
     "id": "entertainer",
     "name": "Entertainer",
     "source": "PHB"
-  },
-  {
-    "id": "entertainer",
-    "name": "Entertainer",
-    "source": "XPHB"
   },
   {
     "id": "faceless",
@@ -330,19 +305,9 @@
     "source": "PHB"
   },
   {
-    "id": "hermit",
-    "name": "Hermit",
-    "source": "XPHB"
-  },
-  {
     "id": "house-agent",
     "name": "House Agent",
     "source": "EFA"
-  },
-  {
-    "id": "house-agent",
-    "name": "House Agent",
-    "source": "ERLW"
   },
   {
     "id": "house-cannith-heir",
@@ -530,11 +495,6 @@
     "source": "PHB"
   },
   {
-    "id": "noble",
-    "name": "Noble",
-    "source": "XPHB"
-  },
-  {
     "id": "orzhov-representative",
     "name": "Orzhov Representative",
     "source": "GGR"
@@ -610,19 +570,9 @@
     "source": "PHB"
   },
   {
-    "id": "sage",
-    "name": "Sage",
-    "source": "XPHB"
-  },
-  {
     "id": "sailor",
     "name": "Sailor",
     "source": "PHB"
-  },
-  {
-    "id": "sailor",
-    "name": "Sailor",
-    "source": "XPHB"
   },
   {
     "id": "scribe",
@@ -668,11 +618,6 @@
     "id": "soldier",
     "name": "Soldier",
     "source": "PHB"
-  },
-  {
-    "id": "soldier",
-    "name": "Soldier",
-    "source": "XPHB"
   },
   {
     "id": "spellfire-initiate",
